@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minha Lista de Tarefas</h1>
+        <ul>
+            {% for task in tasks %} <!-- for para percorrer a lista de tarefas -->
+                <li>
+                    <!-- form para atualizar o status da tarefa -->
+                    <form action="{% url 'update_task' task.id_task %}" method="post" style="display:inline;">
+                        {% csrf_token %} <!-- token de segurança -->
+                        <input type="checkbox" {% if task.complete_task %}checked{% endif %} onChange="this.form.submit()"><!-- checkbox para marcar a tarefa como completa -->
+                    </form>
+                    <!-- exibição dos dados da tarefa -->
+                    {{ task.title_task }}<br>
+                    descrição: {{ task.description_task }}<br>
+                    Prazo: {{ task.prazo_task }}<br>
+                    prioridade: {{ task.get_priority_task_display }}<br>
+                    <a href="{% url 'delete_task' task.id_task %}">Excluir</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- link para a página de adição de tarefas -->
+        <a href="{% url 'add' %}" class="add-button">Adicionar</a>
+    </div>
+</body>
+</html>
