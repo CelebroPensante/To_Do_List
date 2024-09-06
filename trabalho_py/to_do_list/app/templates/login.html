@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %} <!-- token de segurança -->
+            <label for="username">Username:</label>                         <!-- label para o campo de usuário    -->
+            <input type="text" id="username" name="username"><br>           <!-- campo de texto para o usuário    -->
+            <label for="password">Password:</label>                         <!-- label para o campo de senha      -->
+            <input type="password" id="password" name="password"><br>       <!-- campo de texto para a senha      -->
+            <input type="submit" value="Login">                             <!-- botão para submeter o formulário -->
+        </form>
+        <p>Não tem uma conta? <a href="{% url 'register' %}">Registre-se aqui</a></p> <!-- link para a página de registro -->
+    </div>
+</body>
+</html>

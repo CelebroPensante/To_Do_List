@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,7 @@ urlpatterns = [
     path('add', views.add, name='add'), #esta é a rota para adicionar uma tarefa
     path('update_task/<int:task_id>/', views.update_task, name='update_task'), #esta é a rota para atualizar uma tarefa
     path('delete_task/<int:task_id>/', views.delete_task, name='delete_task'), #esta é a rota para deletar uma tarefa
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', views.logout, name='logout'),  # Atualize esta linha
+    path('register/', views.register, name='register'), #esta é a rota para registrar um novo usuário
 ]

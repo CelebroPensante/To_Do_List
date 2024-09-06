@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Minha Lista de Tarefas</title>
+
+    <!--style criado pelo chat gpt apenas para teste da funcionalidade-->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,24 +36,22 @@
     <div class="container">
         <h1>Minha Lista de Tarefas</h1>
         <ul>
-            {% for task in tasks %} <!-- for para percorrer a lista de tarefas -->
+            {% for task in tasks %} <!-- tasks é uma variável que contém todas as tarefas do usuário -->
                 <li>
-                    <!-- form para atualizar o status da tarefa -->
-                    <form action="{% url 'update_task' task.id_task %}" method="post" style="display:inline;">
+                    <form action="{% url 'update_task' task.id_task %}" method="post" style="display:inline;"> <!-- action é a url que será chamada quando o formulário for submetido -->
                         {% csrf_token %} <!-- token de segurança -->
-                        <input type="checkbox" {% if task.complete_task %}checked{% endif %} onChange="this.form.submit()"><!-- checkbox para marcar a tarefa como completa -->
+                        <input type="checkbox" {% if task.complete_task %}checked{% endif %} onChange="this.form.submit()"> <!-- se a tarefa estiver completa, o checkbox estará marcado -->
                     </form>
-                    <!-- exibição dos dados da tarefa -->
-                    {{ task.title_task }}<br>
-                    descrição: {{ task.description_task }}<br>
-                    Prazo: {{ task.prazo_task }}<br>
-                    prioridade: {{ task.get_priority_task_display }}<br>
-                    <a href="{% url 'delete_task' task.id_task %}">Excluir</a>
+                    {{ task.title_task }}<br>                                    <!-- título da tarefa -->
+                    descrição: {{ task.description_task }}<br>                   <!-- descrição da tarefa -->
+                    Prazo: {{ task.prazo_task }}<br>                             <!-- prazo da tarefa -->
+                    prioridade: {{ task.get_priority_task_display }}<br>         <!-- prioridade da tarefa -->
+                    <a href="{% url 'delete_task' task.id_task %}">Excluir</a>   <!-- link para excluir a tarefa -->
                 </li>
             {% endfor %}
         </ul>
-        <!-- link para a página de adição de tarefas -->
-        <a href="{% url 'add' %}" class="add-button">Adicionar</a>
+        <a href="{% url 'add' %}" class="add-button">Adicionar</a> <!-- link para adicionar uma nova tarefa -->
+        <a href="{% url 'logout' %}" class="add-button">Logout</a>  <!-- link para fazer logout -->
     </div>
 </body>
 </html>
