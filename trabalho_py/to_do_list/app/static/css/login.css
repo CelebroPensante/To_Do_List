@@ -1,0 +1,112 @@
+.header, .main , .footer{
+    padding: 1px;
+}
+.header, .footer{
+    background: rgb(88,24,87);
+    background: radial-gradient(circle, rgba(88,24,87,1) 47%, rgba(29,8,29,1) 100%);
+    border: 5px outset #1d081d;
+    border-radius: 5px;
+    grid-area: header;
+}
+
+
+body {
+    background-image: url("evangelion.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: transparent;
+    font-size: 50px;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.registrar {
+    background: rgb(88,24,87);
+    background: radial-gradient(circle, rgba(88,24,87,1) 47%, rgba(29,8,29,1) 100%);
+    font-size: large;
+    color: #77cd63;
+    text-align: center;
+    border: 5px outset #1d081d;
+    border-radius: 5px;
+    max-width: 450px;
+    margin: auto;
+    padding: 20px;
+}
+
+a.button {
+    background: rgb(29,8,29);
+    background: linear-gradient(0deg, rgba(29,8,29,1) 0%, rgba(118,32,117,1) 100%);
+    max-width: 800px;
+    margin: 10px;
+    padding: 8px 25px;
+    border: 5px outset #1d081d;
+    border-radius: 5px;
+    color: #77cd63;
+    text-decoration: none;
+}
+
+h1, h3 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background: -webkit-radial-gradient(#77cd63, #227e17);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+#username, #password {
+    text-align: center;
+    border: 5px outset #1d081d;
+    border-radius: 5px;
+    background: rgb(29,8,29);
+    background: radial-gradient(rgba(118,32,117,1) 0%, rgba(29,8,29,1) 100%);
+    font-size: large;
+    color: #77cd63;
+    padding: 8px 150px;
+}
+
+#login {
+    background: rgb(29,8,29);
+    background: linear-gradient(0deg, rgba(29,8,29,1) 0%, rgba(118,32,117,1) 100%);
+    max-width: 800px;
+    margin: 10px;
+    padding: 8px 25px;
+    border: 5px outset #1d081d;
+    border-radius: 5px;
+    color: #77cd63;
+}
+
+::placeholder {
+    color: #77cd63;
+    padding: 8px 150px;
+  }
+
+.footer {
+    position: absolute;
+    bottom:0%;
+    width: 99.3%;
+}
+
+a.button:hover, #login:hover {
+    transition-duration: 0.8s;
+    border: 5px outset #022001;
+    background: #022001;
+    background: linear-gradient(0deg, #022001 0%, #0a8005 100%);
+    color: black;
+  }

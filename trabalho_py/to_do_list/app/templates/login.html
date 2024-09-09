@@ -1,37 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
-        <form method="post">
-            {% csrf_token %} <!-- token de segurança -->
-            <label for="username">Username:</label>                         <!-- label para o campo de usuário    -->
-            <input type="text" id="username" name="username"><br>           <!-- campo de texto para o usuário    -->
-            <label for="password">Password:</label>                         <!-- label para o campo de senha      -->
-            <input type="password" id="password" name="password"><br>       <!-- campo de texto para a senha      -->
-            <input type="submit" value="Login">                             <!-- botão para submeter o formulário -->
-        </form>
-        <p>Não tem uma conta? <a href="{% url 'register' %}">Registre-se aqui</a></p> <!-- link para a página de registro -->
-    </div>
+    <header class="header"><h1>LOGIN</h1></header>
+    <main class="main"></main>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %} <!-- token de segurança -->
+                <!-- <label for="username">username:</label> -->                                        <!-- label para o campo de usuário    -->
+                <input type="text" id="username" name="username" placeholder="username"><br>            <!-- campo de texto para o usuário    -->
+                <!-- <label for="password">password:</label> -->                                        <!-- label para o campo de senha      -->
+                <input type="password" id="password" name="password" placeholder="password"><br>        <!-- campo de texto para a senha      -->
+                <input type="submit" id="login" value="Login">                                                     <!-- botão para submeter o formulário -->
+            </form>
+        </div>
+        <p class="registrar">Não tem uma conta?<a href="{% url 'register' %}" class="button">Registre-se aqui</a></p> <!-- link para a página de registro -->
+    </main>
+    <footer class="footer">
+        <h3>Melhor sitezinho que ta tendo</h3>
+    </footer>
 </body>
 </html>
