@@ -32,10 +32,28 @@ def add(request): #adicionar tarefa
         add_task.priority_task = request.POST.get('prioridade')
         add_task.user = request.user  # Associe a tarefa ao usuário logado
         add_task.save()
+        tasks = {
+            'tasks': Tasks.objects.all()
+        }
         
         return redirect('home')
     else:
         return render(request, 'add.html')
+    
+def edit_task(request, task_id): #adicionar tarefa
+    add_task = Tasks.objects.get(id_task=task_id, user=request.user)
+    if request.method == 'POST':
+        add_task.title_task = request.POST.get('titulo')
+        add_task.description_task = request.POST.get('descricao')
+        add_task.complete_task = request.POST.get('status')
+        add_task.prazo_task = request.POST.get('data')
+        add_task.priority_task = request.POST.get('prioridade')
+        add_task.user = request.user  # Associe a tarefa ao usuário logado
+        add_task.save()
+        
+        return redirect('home')
+    else:
+        return render(request, 'editar.html')
 
 @login_required
 def update_task(request, task_id): #atualizar tarefa

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'), #esta é a rota principal
     path('add', views.add, name='add'), #esta é a rota para adicionar uma tarefa
+    path('edit_task/<int:task_id>/', views.edit_task, name='edit_task'), #esta é a rota para atualizar uma tarefa
     path('update_task/<int:task_id>/', views.update_task, name='update_task'), #esta é a rota para atualizar uma tarefa
     path('delete_task/<int:task_id>/', views.delete_task, name='delete_task'), #esta é a rota para deletar uma tarefa
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),

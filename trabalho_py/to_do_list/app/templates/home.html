@@ -28,6 +28,8 @@
         
         li {
             margin-bottom: 10px;
+            border: 5px #000000;
+            border-radius: 5px;
         }
 
     </style>
@@ -48,6 +50,7 @@
                     prioridade: {{ task.get_priority_task_display }}<br>         <!-- prioridade da tarefa -->
                     Status: {{task.get_complete_task_display}}<br>                           <!-- status da tarefa -->
                     <a href="{% url 'delete_task' task.id_task %}">Excluir</a>   <!-- link para excluir a tarefa -->
+                    <a href="{% url 'edit_task' task.id_task %}">Editar</a>
                 </li>
             {% endfor %}
         </ul>
