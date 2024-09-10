@@ -9,7 +9,7 @@
 <body>
     <header class="header"><h1>LOGIN</h1></header>
     <main class="main"></main>
-        <div class="container">
+        <div class="container" id="form">
             <form method="post">
                 {% csrf_token %} <!-- token de segurança -->
                 <!-- <label for="username">username:</label> -->                                        <!-- label para o campo de usuário    -->
@@ -19,7 +19,9 @@
                 <input type="submit" id="login" value="Login">                                                     <!-- botão para submeter o formulário -->
             </form>
         </div>
-        <p class="registrar">Não tem uma conta?<a href="{% url 'register' %}" class="button">Registre-se aqui</a></p> <!-- link para a página de registro -->
+        <div class="container">
+            <p class="registrar">Não tem uma conta?<a href="{% url 'register' %}" class="button">Registre-se aqui</a></p> <!-- link para a página de registro -->
+        </div>
     </main>
     <footer class="footer">
         <h3>Melhor sitezinho que ta tendo</h3>
