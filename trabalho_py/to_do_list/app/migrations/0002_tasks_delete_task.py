@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id_task', models.AutoField(primary_key=True, serialize=False)),
                 ('title_task', models.CharField(max_length=200)),
                 ('description_task', models.TextField()),
-                ('complete_task', models.BooleanField(default=False)),
+                ('complete_task', models.CharField(max_length=10)),
                 ('created_task', models.DateTimeField(auto_now_add=True)),
             ],
         ),

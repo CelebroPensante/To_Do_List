@@ -40,12 +40,13 @@
                 <li>
                     <form action="{% url 'update_task' task.id_task %}" method="post" style="display:inline;"> <!-- action é a url que será chamada quando o formulário for submetido -->
                         {% csrf_token %} <!-- token de segurança -->
-                        <input type="checkbox" {% if task.complete_task %}checked{% endif %} onChange="this.form.submit()"> <!-- se a tarefa estiver completa, o checkbox estará marcado -->
+                        <!-- <input type="checkbox" {% if task.complete_task %}checked{% endif %} onChange="this.form.submit()"> --> <!-- se a tarefa estiver completa, o checkbox estará marcado -->
                     </form>
                     {{ task.title_task }}<br>                                    <!-- título da tarefa -->
                     descrição: {{ task.description_task }}<br>                   <!-- descrição da tarefa -->
                     Prazo: {{ task.prazo_task }}<br>                             <!-- prazo da tarefa -->
                     prioridade: {{ task.get_priority_task_display }}<br>         <!-- prioridade da tarefa -->
+                    Status: {{task.get_complete_task_display}}<br>                           <!-- status da tarefa -->
                     <a href="{% url 'delete_task' task.id_task %}">Excluir</a>   <!-- link para excluir a tarefa -->
                 </li>
             {% endfor %}

@@ -27,7 +27,7 @@ def add(request): #adicionar tarefa
         add_task = Tasks()
         add_task.title_task = request.POST.get('titulo')
         add_task.description_task = request.POST.get('descricao')
-        add_task.complete_task = request.POST.get('completada') == 'on'
+        add_task.complete_task = request.POST.get('status')
         add_task.prazo_task = request.POST.get('data')
         add_task.priority_task = request.POST.get('prioridade')
         add_task.user = request.user  # Associe a tarefa ao usuário logado
