@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 def register(request): #registrar novo usuário
     if request.method == 'POST':
@@ -16,14 +17,47 @@ def register(request): #registrar novo usuário
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
+#def home pronta até q enfim bagulho é o seguinte se o usuário for superuser ele pode ver todas as tarefas se não ele só pode ver as tarefas dele
+#todas as linhas comentadas pra facilitar o entendimento
 @login_required
 def home(request):
+    # Obtém o filtro de status da solicitação GET
     status_filter = request.GET.get('status')
-    if status_filter:
-        tasks = Tasks.objects.filter(user=request.user, complete_task=status_filter).order_by('-priority_task', 'prazo_task')
+    # Obtém o filtro de usuário da solicitação GET
+    user_filter = request.GET.get('user')
+    
+    # Verifica se o usuário logado é um superusuário (administrador)
+    if request.user.is_superuser:
+        # Se for administrador, obtém todas as tarefas
+        tasks = Tasks.objects.all()
+        # Obtém todos os usuários para o filtro de usuário
+        users = User.objects.all()
+        # Aplica o filtro de usuário, se fornecido
+        if user_filter:
+            tasks = tasks.filter(user_id=user_filter)
     else:
-        tasks = Tasks.objects.filter(user=request.user).order_by('-priority_task', 'prazo_task')
-    return render(request, 'home.html', {'tasks': tasks})
+        # Se não for administrador, obtém apenas as tarefas do usuário logado
+        tasks = Tasks.objects.filter(user=request.user)
+    
+    # Aplica o filtro de status, se fornecido
+    if status_filter:
+        tasks = tasks.filter(complete_task=status_filter)
+    
+    # Ordena as tarefas por prioridade (decrescente) e prazo (crescente)
+    tasks = tasks.order_by('-priority_task', 'prazo_task')
+    
+    # Cria o contexto a ser passado para o template
+    context = {
+        'tasks': tasks,
+    }
+    
+    # Se o usuário for administrador, adiciona a lista de usuários ao contexto
+    if request.user.is_superuser:
+        context['users'] = users
+    
+    # Renderiza o template 'home.html' com o contexto
+    return render(request, 'home.html', context)
+
 
 @login_required
 def add(request): #adicionar tarefa
