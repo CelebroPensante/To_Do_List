@@ -17,8 +17,12 @@ def register(request): #registrar novo usuário
     return render(request, 'register.html', {'form': form})
 
 @login_required
-def home(request): #página inicial
-    tasks = Tasks.objects.filter(user=request.user).order_by('-priority_task', 'prazo_task')
+def home(request):
+    status_filter = request.GET.get('status')
+    if status_filter:
+        tasks = Tasks.objects.filter(user=request.user, complete_task=status_filter).order_by('-priority_task', 'prazo_task')
+    else:
+        tasks = Tasks.objects.filter(user=request.user).order_by('-priority_task', 'prazo_task')
     return render(request, 'home.html', {'tasks': tasks})
 
 @login_required

@@ -37,6 +37,18 @@
 <body>
     <div class="container">
         <h1>Minha Lista de Tarefas</h1>
+                <!-- Formulário de filtro -->
+                <form method="get" action="{% url 'home' %}">
+                    <label for="status">Filtrar por status:</label>
+                    <select name="status" id="status">
+                        <option value="">Todos</option>
+                        <option value="1">Pendente</option>
+                        <option value="2">Em andamento</option>
+                        <option value="3">Concluída</option>
+                    </select>
+                    <button type="submit">Filtrar</button>
+                </form>
+                
         <ul>
             {% for task in tasks %} <!-- tasks é uma variável que contém todas as tarefas do usuário -->
                 <li>
