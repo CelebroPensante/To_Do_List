@@ -70,10 +70,6 @@ def add(request): #adicionar tarefa
         add_task.priority_task = request.POST.get('prioridade')
         add_task.user = request.user  # Associe a tarefa ao usuário logado
         add_task.save()
-        tasks = {
-            'tasks': Tasks.objects.all()
-        }
-        
         return redirect('home')
     else:
         return render(request, 'add.html')

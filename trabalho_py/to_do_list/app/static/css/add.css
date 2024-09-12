@@ -1,24 +1,95 @@
+.header, .main {
+    padding: 1px;
+}
+.header {
+    background:rgba(0,0,0,0.4);
+    grid-area: header;
+}
+
+
+h1, h3 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #77cd63;
+    background:rgba(0,0,0,0);
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h3 {
+    border: 5px outset #000000;
+    border-radius: 5px;
+    font-size: 30px;
+    margin: auto 10%;
+}
+
 body {
+    background-image: url("redpanda.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
+.main {
+    background:rgba(0,0,0,0.4); 
+    display: grid;
     text-align: center;
+    font-size: 20px;
+    margin: 5% 30%;
+    padding: 20px;
+    
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.container {
+    background:rgba(0,0,0,0.4);
+    border: 5px outset #000000;
+    border-radius: 5px;
+    color: #77cd63;
+    padding: 2%;
 }
 
-li {
-    margin-bottom: 10px;
+#input {
+    text-align: center;
+    border: 5px outset #000000;
+    border-radius: 5px;
+    background:rgba(0,0,0,0.4);
+    font-size: 20px;
+    color: #77cd63;
+    margin: 2%;
+}
+
+.button, .back_button {
+    align-items: center;
+    background:rgba(0,0,0,0.4);
+    margin: 2% 20%;
+    border: 5px outset #000000;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #77cd63;
+    text-decoration: none;
+}
+
+.back_button {
+    padding: 1% 15%;
+}
+
+.button {
+    padding: 1% 13%;
+}
+
+.button:hover {
+    transition-duration: 0.5s;
+    background: #77cd63;
+    color: white;
+}
+
+.back_button:hover {
+    transition-duration: 0.5s;
+    background: #cd6363;
+    color: white;
 }

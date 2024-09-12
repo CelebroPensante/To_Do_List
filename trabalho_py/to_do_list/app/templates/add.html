@@ -7,30 +7,31 @@
     <link rel="stylesheet" href="{% static 'css/add.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Adicionar Tarefas</h1>
-        <form action="{% url 'add' %}" method="post"> <!-- form para adicionar uma nova tarefa -->
-            {% csrf_token %}    <!-- token de segurança -->
-            <label for="titulo">Título:</label>                         <!--titulo-->
-            <input type="text" id="titulo" name="titulo"><br>           <!--campo de texto para o título-->
-            <label for="descricao">Descrição:</label>                   <!--descrição-->
-            <input type="text" id="descricao" name="descricao"><br>     <!--campo de texto para a descrição-->
-            <label for="prazo">Prazo:</label>                           <!--prazo-->
-            <input type="date" id="data" name="data"><br>               <!--campo de data para o prazo-->
-            <label for="prioridade">Prioridade:</label>                 <!--prioridade-->
-            <select id="prioridade" name="prioridade">                  <!--menu suspenso para a prioridade-->
-                <option value="1">Baixa</option>                        <!--opções de prioridade-->
-                <option value="2">Média</option>
-                <option value="3">Alta</option>
-            </select><br>
-            <select id="status" name="status">                          <!--menu suspenso para a status-->
-                <option value="1">Pendente</option>               <!--opções de status-->
-                <option value="2">Em andamento</option>
-                <option value="3">Concluída</option>
-            </select><br>
-            <input type="submit" value="Adicionar">                     <!--botão para adicionar a tarefa-->
-        </form>
-        <a href="{% url 'home' %}" class="add-button">Voltar</a><!-- link para a página inicial -->
-    </div>
+    <header class="header"><h1>Adicionar Tarefas</h1></header>
+    <main class="main">
+        <div class="container">
+            <form action="{% url 'add' %}" method="post"> <!-- form para adicionar uma nova tarefa -->
+                {% csrf_token %}    <!-- token de segurança -->
+                <input type="text" id="input" name="titulo" placeholder="Título"><br>           <!--campo de texto para o título-->  
+                <input type="text" id="input" name="descricao" placeholder="Descrição"><br>     <!--campo de texto para a descrição-->
+                <label for="prazo">PRAZO:</label><br>                                               <!--prazo-->
+                <input type="date" id="input" name="data" placeholder="Prazo"><br>                                  <!--campo de data para o prazo-->
+                <select id="input" name="prioridade">                                           <!--menu suspenso para a prioridade-->
+                    <option value="" disabled selected>Prioridade</option>
+                    <option value="1">Baixa</option>                                                <!--opções de prioridade-->
+                    <option value="2">Média</option>
+                    <option value="3">Alta</option>
+                </select><br>
+                <select id="input" name="status">                                               <!--menu suspenso para a status-->
+                    <option value="" disabled selected>Status</option>
+                    <option value="1">Pendente</option>                                         <!--opções de status-->
+                    <option value="2">Em andamento</option>
+                    <option value="3">Concluída</option>
+                </select><br>
+                <input class="button" type="submit" value="Adicionar">                     <!--botão para adicionar a tarefa-->
+            </form>
+            <a href="{% url 'home' %}" class="back_button">Voltar</a><!-- link para a página inicial -->
+        </div>
+    </main>
 </body>
 </html>
