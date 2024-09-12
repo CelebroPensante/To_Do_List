@@ -9,13 +9,11 @@
 <body>
     <header class="header"><h1>Registrar</h1></header>
     <main class="main">
-        <div class="container"> <!-- container para centralizar o conteúdo -->
-            <form method="post">
-                {% csrf_token %} <!-- token de segurança -->
-                {{ form.as_p }} <!-- renderiza o formulário de registro -->
-                <input type="submit" class="button" value="Registrar"> <!-- botão para submeter o formulário -->
-            </form>
-        </div>
+        <form method="post">
+            {% csrf_token %} <!-- token de segurança -->
+            {{ form.as_p }} <!-- renderiza o formulário de registro -->
+            <input type="submit" class="button" value="Registrar"> <!-- botão para submeter o formulário -->
+        </form>
     </main>
     <footer class="footer">
         <h3>Melhor sitezinho que ta tendo</h3>

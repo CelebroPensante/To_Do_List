@@ -86,6 +86,7 @@ li {
     font-size: large;
 }
 
-#status {
+#status, #user {
     color: #77cd63;
+    background: #000000;
 }
