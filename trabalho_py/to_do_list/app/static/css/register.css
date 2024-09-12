@@ -1,3 +1,4 @@
+
 .header, .main , .footer{
     padding: 1px;
 }
@@ -39,52 +40,23 @@ body {
     padding: 0;
 }
 
+form {
+    color: #77cd63;
+    font-size: medium;
+
+}
+
 .container {
+    background:rgba(0,0,0,0.4); 
     display: grid;
     text-align: center;
-    background-color: transparent;
+    font-size: 20px;
     font-size: 50px;
     margin: 5% 30%;
     padding: 20px;
 }
 
-
-#username, #password {
-    text-align: center;
-    border: 5px outset #000000;
-    border-radius: 5px;
-    background:rgba(0,0,0,0.4);
-    font-size: large;
-    color: #77cd63;
-    padding: 8px 10px;
-}
-
-::placeholder {
-    color: #77cd63;
-}
-
-#login {
-    align-items: center;
-    background:rgba(0,0,0,0.4);
-    margin: auto;
-    padding: 1% 13%;
-    border: 5px outset #000000;
-    border-radius: 5px;
-    font-size: 20px;
-    color: #77cd63;
-}
-
-.registrar {
-    background:rgba(0,0,0,0);
-    font-size: large;
-    color: #77cd63;
-    text-align: center;
-    
-    margin: auto;
-    padding: 20px;
-}
-
-a.button {
+.button {
     background:rgba(0,0,0,0.4);
     margin-left: 10px;
     padding: 5px 10px;
@@ -94,7 +66,7 @@ a.button {
     text-decoration: none;
 }
 
-a.button:hover, #login:hover {
+.button:hover {
     transition-duration: 0.5s;
     background: #77cd63;
     color: white;
