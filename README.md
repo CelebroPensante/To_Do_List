@@ -4,15 +4,36 @@
 
 Este é um aplicativo de lista de tarefas desenvolvido com Django, para o nosso trabalho de python. Ele permite que os usuários criem, editem e excluam tarefas, além de gerenciar prioridades e status. O sistema de autenticação garante que cada usuário visualize apenas suas tarefas, com permissões adicionais para administradores, feito usando
 um css e html próprio.
-
-Funcionalidades: 
+```
+to_do_list
+    └── /app
+        ├── /Templates
+        |   ├── add.html
+        |   ├── editar.html
+        |   ├── home.html
+        |   ├── login.html
+        |   ├── register.html
+        |   └── ...
+        ├── /static
+        |   └── css
+        |       ├── home.css
+        |       ├── login.css
+        |       ├── register.css
+        |       └── redpanda.png
+        ├── views.py
+        ├── models.py
+        ├── apps.py
+        └── tests.py
+```
+> **Nota:** Essa image tem intençoões ilustrativas, e pode não refletir a estrutura real do nosso projeto em sua totalidade
+### Funcionalidades: 
 
  - Autenticação de usuários (registro/login/logout)
  - Gerenciamento de tarefas (criar, editar, excluir)
  - Filtragem por status e prioridade
  - Controle administrativo para visualização de todas as tarefas
 
-Instalação:
+### Instalação:
 1. Clone a repo:
 
     ```bash
