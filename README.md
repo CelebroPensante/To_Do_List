@@ -1,5 +1,6 @@
 # Aplicativo To-Do List em Django
-# Visão Geral
+
+##  Explicação:
 
 Este é um aplicativo de lista de tarefas desenvolvido com Django, para o nosso trabalho de python. Ele permite que os usuários criem, editem e excluam tarefas, além de gerenciar prioridades e status. O sistema de autenticação garante que cada usuário visualize apenas suas tarefas, com permissões adicionais para administradores, feito usando
 um css e html próprio.
@@ -50,5 +51,5 @@ Crie um ambiente virtual e ative:
 
 ### ALUNOS
 - VITOR
-- TIEPO
+- LUCAS
 - PEDRO 
